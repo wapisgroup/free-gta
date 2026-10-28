@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free GTA</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game"></div>
+      <form id="menu" class="menu" autocomplete="off">
+        <h1>FREE GTA</h1>
+        <p class="tagline">Drive around any real city. Streets and buildings come live from OpenStreetMap.</p>
+        <div class="search">
+          <input id="city" name="city" type="text" value="Piccadilly Circus, London" placeholder="City, address or lat,lon" autofocus />
+          <select id="size" name="size" title="Map size">
+            <option value="500">Small (1 km)</option>
+            <option value="800" selected>Medium (1.6 km)</option>
+            <option value="1200">Large (2.4 km)</option>
+          </select>
+          <button type="submit">Play</button>
+        </div>
+        <div class="presets">
+          <button type="button" data-city="Piccadilly Circus, London">London</button>
+          <button type="button" data-city="Old Town Square, Prague">Prague</button>
+          <button type="button" data-city="Times Square, New York">New York</button>
+          <button type="button" data-city="Shibuya Station, Tokyo">Tokyo</button>
+          <button type="button" data-city="Arc de Triomphe, Paris">Paris</button>
+          <button type="button" data-city="Union Square, San Francisco">San Francisco</button>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </form>
+      <div class="attribution">
+        Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

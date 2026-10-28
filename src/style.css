@@ -1,0 +1,228 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #121311;
+  color: #eee;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+#app,
+#game {
+  position: fixed;
+  inset: 0;
+}
+
+#game canvas {
+  display: block;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  background: radial-gradient(circle at 50% 30%, #2a2c27 0%, #121311 70%);
+  z-index: 10;
+}
+
+.menu[hidden] {
+  display: none;
+}
+
+.menu h1 {
+  margin: 0;
+  font-size: clamp(48px, 10vw, 96px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: #ffd23f;
+  text-shadow:
+    4px 4px 0 #b3261e,
+    8px 8px 0 #000;
+}
+
+.tagline {
+  margin: 0;
+  color: #b9b7ae;
+  text-align: center;
+  max-width: 520px;
+}
+
+.search {
+  display: flex;
+  gap: 8px;
+  width: min(640px, 100%);
+  flex-wrap: wrap;
+}
+
+.search input {
+  flex: 1 1 260px;
+  font-size: 18px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 2px solid #3a3c36;
+  background: #1d1e1b;
+  color: #fff;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #ffd23f;
+}
+
+.search select,
+.search button,
+.presets button {
+  font: inherit;
+  border-radius: 8px;
+  border: 2px solid #3a3c36;
+  background: #23241f;
+  color: #ddd;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.search button {
+  background: #ffd23f;
+  border-color: #ffd23f;
+  color: #111;
+  font-weight: 800;
+  padding: 10px 22px;
+}
+
+.search button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.presets button:hover {
+  border-color: #ffd23f;
+}
+
+.status {
+  min-height: 1.4em;
+  margin: 0;
+  color: #c9c6bb;
+  text-align: center;
+}
+
+.status.error {
+  color: #ff7a6e;
+}
+
+.attribution {
+  position: fixed;
+  right: 8px;
+  bottom: 6px;
+  font-size: 11px;
+  color: #ccc;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 6px;
+  border-radius: 4px;
+  z-index: 20;
+}
+
+.attribution a {
+  color: #fff;
+}
+
+.hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  text-shadow: 0 1px 3px #000;
+}
+
+.hud-place {
+  position: absolute;
+  left: 16px;
+  top: 12px;
+}
+
+.hud-city {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffd23f;
+  font-weight: 700;
+}
+
+.hud-street {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.hud-minimap {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.hud-speed {
+  position: absolute;
+  right: 24px;
+  bottom: 34px;
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.hud-hint.visible {
+  opacity: 1;
+}
+
+.hud-keys {
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+  font-size: 12px;
+  color: #ddd;
+}
+
+@media (max-width: 600px) {
+  .hud-minimap {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hud-keys {
+    display: none;
+  }
+}
